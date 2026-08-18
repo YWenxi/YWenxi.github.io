@@ -1,0 +1,8 @@
+{{- if .Text -}}
+<figure class="notion-figure">
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} />
+  <figcaption>{{ .Text }}</figcaption>
+</figure>
+{{- else -}}
+<img src="{{ .Destination | safeURL }}" alt=""{{ with .Title }} title="{{ . }}"{{ end }} />
+{{- end -}}

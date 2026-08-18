@@ -1,0 +1,19 @@
+/* Notion-style image captions: small gray text centered below the image.
+   Scoped with .md-content to override PaperMod's figure>figcaption defaults. */
+.md-content .notion-figure {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.md-content .notion-figure img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.md-content .notion-figure figcaption {
+  margin: 6px 0 0;
+  font-size: 0.8em;
+  font-weight: normal;
+  color: var(--secondary);
+  text-align: center;
+}
