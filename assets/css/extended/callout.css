@@ -1,0 +1,125 @@
+/* Notion-style callout blocks.
+   Write raw <aside> tags in Markdown, optionally with a color attribute:
+     <aside> ... </aside>
+     <aside color="blue"> ... </aside>
+   Available colors: gray (default), brown, orange, yellow, green,
+   blue, purple, pink, red.
+
+   Icon: either put an emoji on the first line inside the tag, or set
+   the icon attribute (takes precedence if both are present):
+     <aside icon="🚀" color="green"> ... </aside> */
+
+aside {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.6rem;
+  align-items: start;
+  margin: 1rem 0;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  background: #f1f1ef; /* notion gray */
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+/* Icon from the icon attribute, placed in column 1. */
+aside[icon]::before {
+  content: attr(icon);
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 1.15em;
+}
+
+/* Fallback when no icon attribute is set: the icon (bare text node
+   right after <aside>) is auto-placed in column 1; all block content
+   is forced into column 2 so the text starts on the same line as the
+   icon, like a Notion callout. */
+aside > * {
+  grid-column: 2;
+  min-width: 0;
+}
+
+aside > p:first-of-type {
+  margin-top: 0;
+}
+
+aside > p:last-of-type {
+  margin-bottom: 0;
+}
+
+aside[color="gray"] {
+  background: #f1f1ef;
+}
+
+aside[color="brown"] {
+  background: #f3eeee;
+}
+
+aside[color="orange"] {
+  background: #faebdd;
+}
+
+aside[color="yellow"] {
+  background: #fbf3db;
+}
+
+aside[color="green"] {
+  background: #edf3ec;
+}
+
+aside[color="blue"] {
+  background: #e7f3f8;
+}
+
+aside[color="purple"] {
+  background: #f6f3f9;
+}
+
+aside[color="pink"] {
+  background: #faf1f5;
+}
+
+aside[color="red"] {
+  background: #fdebec;
+}
+
+/* Dark theme variants (PaperMod toggles data-theme on <html>) */
+[data-theme="dark"] aside {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] aside[color="gray"] {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] aside[color="brown"] {
+  background: rgba(186, 133, 111, 0.18);
+}
+
+[data-theme="dark"] aside[color="orange"] {
+  background: rgba(255, 163, 68, 0.16);
+}
+
+[data-theme="dark"] aside[color="yellow"] {
+  background: rgba(255, 220, 73, 0.14);
+}
+
+[data-theme="dark"] aside[color="green"] {
+  background: rgba(68, 131, 97, 0.25);
+}
+
+[data-theme="dark"] aside[color="blue"] {
+  background: rgba(45, 154, 206, 0.2);
+}
+
+[data-theme="dark"] aside[color="purple"] {
+  background: rgba(151, 113, 178, 0.25);
+}
+
+[data-theme="dark"] aside[color="pink"] {
+  background: rgba(205, 116, 159, 0.22);
+}
+
+[data-theme="dark"] aside[color="red"] {
+  background: rgba(204, 84, 84, 0.22);
+}
