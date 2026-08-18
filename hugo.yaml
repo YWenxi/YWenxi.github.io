@@ -1,7 +1,8 @@
-baseURL: https://yourusername.github.io/
+baseURL: https://ywenxi.github.io/
 locale: en-us
 title: ywenxi 
 theme: ["PaperMod"]
+
 
 params:
   env: production
@@ -10,7 +11,7 @@ params:
 
   defaultTheme: auto
 
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowReadingTime: true
 
   homeInfoParams:
@@ -32,6 +33,26 @@ params:
     - name: Discord
       title: Join discord community
       url: "https://discord.gg/ahpmTvhVmp"
+
+menu:
+      main:
+        - name: About
+          url: about
+          weight: 1
+        - name: Blogs
+          url: blog/
+          weight: 2
+        - name: Research
+          url: research/
+          weight: 2
+        - name: Tags
+          url: tags/
+          weight: 4
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
 
 caches:
   images:
