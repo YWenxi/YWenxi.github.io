@@ -1,7 +1,7 @@
 /* Notion-style link mention: favicon + page title for bare links. */
 .md-content a.notion-mention {
   padding: 0 2px;
-  border-radius: 3px;
+  border-radius: 0px;
   color: var(--primary);
   text-decoration: none;
   border-bottom: 1px solid var(--secondary);
