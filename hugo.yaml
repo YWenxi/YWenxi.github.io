@@ -77,6 +77,8 @@ markup:
           - - $
             - $
         enable: true
+  highlight:
+    noClasses: false
 
 caches:
   images:
