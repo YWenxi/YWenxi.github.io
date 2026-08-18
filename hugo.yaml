@@ -6,6 +6,9 @@ theme: ["PaperMod"]
 params:
   env: production
   description: "My Personal Website. 🚧 Under Construction... 🚧"
+  author: ywenxi
+
+  defaultTheme: auto
 
   ShowShareButtons: true
   ShowReadingTime: true
