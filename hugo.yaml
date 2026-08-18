@@ -1,6 +1,6 @@
 baseURL: https://yourusername.github.io/
 locale: en-us
-title: Wenxi Yang 
+title: ywenxi 
 theme: ["PaperMod"]
 
 params:
@@ -12,12 +12,20 @@ params:
 
   homeInfoParams:
     Title: "Wenxi Yang"
-    Content: "🚧 Under Construction... 🚧"
+    Content: |
+      **🚧 Under Construction 🚧**
+
+      I am a Ph.D. candidate of LAMP (Learning And Machine Perception) in University of Chinese Academy of Sciences, advised by [Prof. Qixiang Ye](https://people.ucas.ac.cn/~qxye).
+
+      My research interests include vision language models and deep learning methods, specifically in post-training on vision language models and visual agents.
 
   socialIcons:
     - name: github
-      title: View Source on Github
-      url: "https://github.com/adityatelange/hugo-PaperMod"
+      title: My Github Page
+      url: "https://github.com/YWenxi"
+    - name: Email
+      title: Send me an email
+      url: "mailto:yangwenxi24@mails.ucas.ac.cn"
     - name: Discord
       title: Join discord community
       url: "https://discord.gg/ahpmTvhVmp"
