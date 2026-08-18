@@ -1,0 +1,21 @@
+{{- $text := strings.TrimSpace .Text -}}
+{{- $dest := .Destination -}}
+{{- $bare := or (eq $text "") (eq $text $dest) -}}
+{{- if and $bare (not .Title) (or (hasPrefix $dest "https://") (hasPrefix $dest "http://")) -}}
+  {{/* Notion-style mention: favicon + page title for bare links. */}}
+  {{- $host := (urls.Parse $dest).Host -}}
+  {{- $title := "" -}}
+  {{- $r := try (resources.GetRemote $dest (dict "timeout" "5s")) -}}
+  {{- if eq $r.Err nil -}}
+    {{- with $r.Value -}}
+      {{- $matches := findRESubmatch "(?is)<title[^>]*>(.*?)</title>" .Content 1 -}}
+      {{- if gt (len $matches) 0 -}}
+        {{- $title = index (index $matches 0) 1 | htmlUnescape | strings.TrimSpace -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if eq $title "" }}{{ $title = $host }}{{ end -}}
+  <a class="notion-mention" href="{{ $dest | safeURL }}" target="_blank" rel="noopener noreferrer"><img class="notion-mention-icon" src="https://www.google.com/s2/favicons?domain={{ $host }}&sz=32" alt="" style="display:none;" onload="this.style.display='inline';" />{{ $title }}</a>
+{{- else -}}
+  <a href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- end -}}

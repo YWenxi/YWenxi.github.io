@@ -1,0 +1,21 @@
+/* Notion-style link mention: favicon + page title for bare links. */
+.md-content a.notion-mention {
+  padding: 0 2px;
+  border-radius: 3px;
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--secondary);
+  transition: background 0.15s ease-in-out;
+}
+
+.md-content a.notion-mention:hover {
+  background: rgba(125, 125, 125, 0.15);
+}
+
+.md-content a.notion-mention img.notion-mention-icon {
+  display: inline;
+  width: 1em;
+  height: 1em;
+  margin: 0 4px 0 0;
+  vertical-align: -0.15em;
+}
